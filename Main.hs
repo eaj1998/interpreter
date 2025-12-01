@@ -22,15 +22,17 @@ runTest s = do
 
 main :: IO ()
 main = do
+    putStrLn "=== Interpretador de Linguagem Funcional ==="
+    putStrLn ""
     runTest "1 + 2"
+    runTest "3 * 4"
+    runTest "10 - 5"
     runTest "(1, 2)"
     runTest "fst (1, 2)"
     runTest "snd (1, 2)"
-    runTest "(\\x:Int -> x + 1) 5"
-    runTest "(\\p:(Int, Int) -> fst p + snd p) (10, 20)"
-    runTest "if true then 1 else 0"
-    runTest "fst ((\\x:Int -> (x, x)) 5)"
-    runTest "let x = 1 in x + 1" -- Not implemented let, but checking if parser handles var
-    -- Wait, I didn't implement 'let'. The user didn't ask for it explicitly but it's common.
-    -- I'll skip 'let' for now as it wasn't in requirements.
-    runTest "(\\x:Int -> \\y:Int -> x + y) 10 20"
+    runTest "(\\x :: Int -> x + 1) 5"
+    runTest "true && false"
+    runTest "true || false"
+    runTest "!true"
+    runTest "5 == 5"
+    runTest "3 > 2"
